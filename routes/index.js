@@ -63,6 +63,9 @@ router.get('/getjobs', function(req, res, next) {
 
 router.post('/feedbackdata', function(req, res, next) {
     let sqlData = req.body.sqlData;
+    console.log("===========>   return query data:")
+    console.log(sqlData);
+    console.log(req.body);
     // let index = Object.getOwnPropertySymbols(sqlData);
     storage.data = Object.assign(storage.data, sqlData);
     console.log(storage.data);

@@ -10,7 +10,7 @@ Cycle.getData = function(res,id) {
 
 function cycle (res, id, count) {
     if(storage.data[id] != undefined) {
-        res.send(datum);
+        res.send(storage.data[id]);
         delete storage.data[id];
     } else if (count > 10){
         console.log(storage.jobs);
