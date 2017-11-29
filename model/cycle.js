@@ -12,7 +12,7 @@ function cycle (res, id, count) {
     if(storage.data[id] != undefined) {
         res.send(storage.data[id]);
         delete storage.data[id];
-    } else if (count > 10){
+    } else if (count > 30){
         console.log(storage.jobs);
         res.send("Timeout, please try again");
     } else {
