@@ -71,4 +71,16 @@ router.post('/feedbackdata', function(req, res, next) {
     console.log(storage.data);
     res.send("get data");
 });
+
+
+// data watch api
+router.get('/getResults', function(req, res, next) {
+    res.send(storage.data);
+});
+
+router.get('/cleanResults', function(req, res, next) {
+    storage.data = {};
+    res.send('done');
+});
+
 module.exports = router;
