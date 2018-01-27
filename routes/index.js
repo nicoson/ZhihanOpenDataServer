@@ -35,7 +35,7 @@ router.post('/astockdata', function(req, res, next) {
 router.get('/futurenamelist', function(req, res, next) {
     let id = (new Date()).getTime();
     storage.jobs[id] = {
-        db: 'future',
+        db: 'future_l2',
         table: 'updatelog'
     }
 
@@ -45,7 +45,7 @@ router.get('/futurenamelist', function(req, res, next) {
 router.post('/futuredata', function(req, res, next) {
     let id = (new Date()).getTime();
     storage.jobs[id] = {
-        db: 'future',
+        db: 'future_l2',
         table: req.body.table,
         start: req.body.start,
         end: req.body.end
