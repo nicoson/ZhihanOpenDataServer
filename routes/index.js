@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 // open source api
+// handle requests for stocks
 router.get('/astocknamelist', function(req, res, next) {
     let id = (new Date()).getTime();
     storage.jobs[id] = {
@@ -32,6 +33,7 @@ router.post('/astockdata', function(req, res, next) {
     cycle.getData(res,id)
 });
 
+// handle requests for futures
 router.get('/futurenamelist', function(req, res, next) {
     let id = (new Date()).getTime();
     storage.jobs[id] = {
@@ -46,6 +48,29 @@ router.post('/futuredata', function(req, res, next) {
     let id = (new Date()).getTime();
     storage.jobs[id] = {
         db: 'future_l2',
+        table: req.body.table,
+        start: req.body.start,
+        end: req.body.end
+    }
+
+    cycle.getData(res,id)
+});
+
+// handle requests for main contract
+router.get('/maincontractlist', function(req, res, next) {
+    let id = (new Date()).getTime();
+    storage.jobs[id] = {
+        db: 'maincontract',
+        table: 'updatelog'
+    }
+
+    cycle.getData(res,id)
+});
+
+router.post('/maincontractdata', function(req, res, next) {
+    let id = (new Date()).getTime();
+    storage.jobs[id] = {
+        db: 'maincontract',
         table: req.body.table,
         start: req.body.start,
         end: req.body.end
