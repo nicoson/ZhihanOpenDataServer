@@ -56,7 +56,7 @@
           })
         }
         console.log("send request ... ...");
-        fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
+        fetch('/futuredata', postbody).then(e => e.json()).then(e => console.log(e));
       });
 
       document.querySelector('#test_maincontractlist').addEventListener('click', function(e) {
@@ -74,7 +74,7 @@
           })
         }
         console.log("send request ... ...");
-        fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
+        fetch('/maincontractdata', postbody).then(e => e.json()).then(e => console.log(e));
       });
 
       document.querySelector('#test_indexlist').addEventListener('click', function(e) {
@@ -92,7 +92,7 @@
           })
         }
         console.log("send request ... ...");
-        fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
+        fetch('/indexdata', postbody).then(e => e.json()).then(e => console.log(e));
       });
     </script>
   </body>
