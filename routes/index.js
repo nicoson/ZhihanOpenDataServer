@@ -79,6 +79,29 @@ router.post('/maincontractdata', function(req, res, next) {
     cycle.getData(res,id)
 });
 
+// handle requests for index
+router.get('/indexlist', function(req, res, next) {
+    let id = (new Date()).getTime();
+    storage.jobs[id] = {
+        db: 'securityindex',
+        table: null
+    }
+
+    cycle.getData(res,id)
+});
+
+router.post('/indexdata', function(req, res, next) {
+    let id = (new Date()).getTime();
+    storage.jobs[id] = {
+        db: 'securityindex',
+        table: req.body.table,
+        start: req.body.start,
+        end: req.body.end
+    }
+
+    cycle.getData(res,id)
+});
+
 
 // middle ware api
 router.get('/getjobs', function(req, res, next) {
