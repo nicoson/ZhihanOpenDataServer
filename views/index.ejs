@@ -7,5 +7,83 @@
   <body>
     <h1>Zhihan Open Data Service</h1>
     <p>Public Service is ready</p>
+    <br />
+    <div>
+      <p>test panel</p>
+      <button id="test_astocknamelist">get A stock name list</button>
+      <button id="test_astockdata">get A stock sample data</button>
+      <button id="test_futurenamelist">get future code list</button>
+      <button id="test_futuredata">get future data</button>
+      <button id="test_maincontractlist">get main contract list</button>
+      <button id="test_maincontractdata">get main contract data</button>
+      <button id="test_indexlist">get index list</button>
+      <button id="test_indexdata">get index data</button>
+    </div>
+
+    <script>
+      document.querySelector('#test_astocknamelist').addEventListener('click', function(e) {
+        fetch('/astocknamelist').then(e => e.json()).then(e => console.log(e));
+      });
+
+      document.querySelector('#test_astockdata').addEventListener('click', function(e) {
+        let postbody = {
+          method:"POST",
+          body:JSON.stringify({
+            table: '000001.SZ',
+            start: '2017-10-01',
+            end: '2017-11-25'
+          })
+        }
+        fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
+      });
+
+      document.querySelector('#test_futurenamelist').addEventListener('click', function(e) {
+        fetch('/futurenamelist').then(e => e.json()).then(e => console.log(e));
+      });
+
+      document.querySelector('#test_futuredata').addEventListener('click', function(e) {
+        let postbody = {
+          method:"POST",
+          body:JSON.stringify({
+            table: 'A1803.DCE',
+            start: '2017-10-01',
+            end: '2017-11-25'
+          })
+        }
+        fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
+      });
+
+      document.querySelector('#test_maincontractlist').addEventListener('click', function(e) {
+        fetch('/maincontractlist').then(e => e.json()).then(e => console.log(e));
+      });
+
+      document.querySelector('#test_maincontractdata').addEventListener('click', function(e) {
+        let postbody = {
+          method:"POST",
+          body:JSON.stringify({
+            table: 'A.DCE',
+            start: '2017-10-01',
+            end: '2017-11-25'
+          })
+        }
+        fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
+      });
+
+      document.querySelector('#test_indexlist').addEventListener('click', function(e) {
+        fetch('/indexlist').then(e => e.json()).then(e => console.log(e));
+      });
+
+      document.querySelector('#test_indexdata').addEventListener('click', function(e) {
+        let postbody = {
+          method:"POST",
+          body:JSON.stringify({
+            table: 'A.DCE',
+            start: '2017-10-01',
+            end: '2017-11-25'
+          })
+        }
+        fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
+      });
+    </script>
   </body>
 </html>
