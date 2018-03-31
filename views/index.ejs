@@ -10,18 +10,21 @@
     <br />
     <div>
       <p>test panel</p>
-      <button id="test_astocknamelist">get A stock name list</button>
-      <button id="test_astockdata">get A stock sample data</button>
-      <button id="test_futurenamelist">get future code list</button>
-      <button id="test_futuredata">get future data</button>
-      <button id="test_maincontractlist">get main contract list</button>
-      <button id="test_maincontractdata">get main contract data</button>
-      <button id="test_indexlist">get index list</button>
-      <button id="test_indexdata">get index data</button>
+      <ul>
+          <li><button id="test_astocknamelist">get A stock name list</button></li>
+          <li><button id="test_astockdata">get A stock sample data</button></li>
+          <li><button id="test_futurenamelist">get future code list</button></li>
+          <li><button id="test_futuredata">get future data</button></li>
+          <li><button id="test_maincontractlist">get main contract list</button></li>
+          <li><button id="test_maincontractdata">get main contract data</button></li>
+          <li><button id="test_indexlist">get index list</button></li>
+          <li><button id="test_indexdata">get index data</button></li>
+      </ul>
     </div>
 
     <script>
       document.querySelector('#test_astocknamelist').addEventListener('click', function(e) {
+        console.log("send request ... ...");
         fetch('/astocknamelist').then(e => e.json()).then(e => console.log(e));
       });
 
@@ -34,10 +37,12 @@
             end: '2017-11-25'
           })
         }
+        console.log("send request ... ...");
         fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
       });
 
       document.querySelector('#test_futurenamelist').addEventListener('click', function(e) {
+        console.log("send request ... ...");
         fetch('/futurenamelist').then(e => e.json()).then(e => console.log(e));
       });
 
@@ -50,10 +55,12 @@
             end: '2017-11-25'
           })
         }
+        console.log("send request ... ...");
         fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
       });
 
       document.querySelector('#test_maincontractlist').addEventListener('click', function(e) {
+        console.log("send request ... ...");
         fetch('/maincontractlist').then(e => e.json()).then(e => console.log(e));
       });
 
@@ -66,10 +73,12 @@
             end: '2017-11-25'
           })
         }
+        console.log("send request ... ...");
         fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
       });
 
       document.querySelector('#test_indexlist').addEventListener('click', function(e) {
+        console.log("send request ... ...");
         fetch('/indexlist').then(e => e.json()).then(e => console.log(e));
       });
 
@@ -82,6 +91,7 @@
             end: '2017-11-25'
           })
         }
+        console.log("send request ... ...");
         fetch('/astockdata', postbody).then(e => e.json()).then(e => console.log(e));
       });
     </script>
